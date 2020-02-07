@@ -3,7 +3,7 @@ pipeline {
   stages {
 	    stage('Run Robot Tests') {
 	      steps {
-		        	sh 'python3 -m robot.run --NoStatusRC --outputdir output tasks/'
+		        	sh 'robot --NoStatusRC --outputdir output tasks/'
 		        	sh 'exit 0'
 	      		}
 	      post {
