@@ -6,12 +6,9 @@ pipeline {
         sh "mkdir data"
       }
     }
-    stage('build and run') {
+    stage('Run tasks') {
       steps {
-        sh "docker run --rm \
-        -v /var/jenkins_home/workspace/robotest_master/data:/opt/robotframework/reports:Z \
-        -v /var/jenkins_home/workspace/robotest_master/tasks:/opt/robotframework/tests:Z \
-        ppodgorsek/robot-framework"
+        sh "robot Robotask.robot"
       }
     }
     stage('save') {
@@ -19,7 +16,7 @@ pipeline {
 step(
     [
     $class : 'RobotPublisher',
-    outputPath : '/var/jenkins_home/workspace/robotest_master/data',
+    outputPath : '/var/jenkins_home/workspace/robotest2_master/data',
     outputFileName : "*.xml",
     disableArchiveOutput : false,
     passThreshold : 100,
