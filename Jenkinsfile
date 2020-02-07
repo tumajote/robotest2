@@ -3,6 +3,11 @@ pipeline {
   stages {
     stage('Run tasks') {
       steps {
+        sh "robot --version"
+      }
+    }
+    stage('Run tasks') {
+      steps {
         sh "robot Robotask.robot"
       }
     }
